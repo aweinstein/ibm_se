@@ -11,6 +11,7 @@
 #include <avr/io.h>
 #include <inttypes.h>
 #include "blink.h"
+#include "main.h"
 
 /* Prototipo de funciones */
 void init(void);
@@ -34,6 +35,6 @@ int main (void)
 ******************************************************************************/
 void init(void)
 {
-  DDRC = 0xFF;
+  LED_DDR |= (1 << LED_PIN);
 }
 
