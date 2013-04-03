@@ -11,6 +11,10 @@
 #include <util/delay.h>
 #include <inttypes.h>
 #include "blink.h"
+#include "main.h"
+
+#define led_on() LED_PORT |= (1 << LED_PIN)
+#define led_off() LED_PORT &= ~(1 << LED_PIN)
 
 /******************************************************************************
 * Nombre de la funcion	: void blink(uint16_t t_on, uint16_t t_off)
@@ -27,11 +31,12 @@ void blink(uint16_t t_on, uint16_t t_off)
 {
   uint16_t i;
 
-  PORTC = 0xFF;
+  led_on();
   for(i=0; i<t_on; i++) {
     _delay_ms(1);
   }
-  PORTC = 0x00;
+
+  led_off();
   for(i=0; i<t_off; i++) {
     _delay_ms(1);
   }
