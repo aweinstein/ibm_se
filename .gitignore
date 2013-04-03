@@ -3,3 +3,7 @@
 *.elf
 *.hex
 *.lss
+*.d
+*.map
+*.sym
+*.xml
